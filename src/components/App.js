@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { convertTxtToArray } from '../helpers/convertTxtToArray';
 import { getCompleteInfo } from '../helpers/getCompleteDiscs';
 import discography from '../resources/discography.txt';
 import { CreateBoardScreen } from './CreateBoardScreen';
-import { Header } from './Header';
+import { Header } from './HeaderScreen';
 
 export const App = () => {
 	const [text, setText] = useState();
