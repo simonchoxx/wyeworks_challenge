@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { convertTxtToArray } from '../helpers/convertTxtToArray';
+import { convertTxtToArray } from '../helpers/appFunctions';
 import { getCompleteInfo } from '../helpers/getCompleteDiscs';
 import discography from '../resources/discography.txt';
 import { CreateBoardScreen } from './CreateBoardScreen';

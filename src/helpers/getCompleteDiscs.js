@@ -1,4 +1,4 @@
-import { sortByYearAndName } from './sortDiscography';
+import { sortByYearAndName } from './appFunctions';
 
 export const getCompleteInfo = (orderDiscography) => {
 	let completeDisc = [];

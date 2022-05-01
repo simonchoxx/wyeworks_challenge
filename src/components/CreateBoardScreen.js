@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { createBoard, createLists, getAllBoards } from '../helpers/APIBoard';
+import { createBoard, createLists, getAllBoards } from '../helpers/apiBoard';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ListBoardsScreen } from './ListBoardsScreen';
 import { MessagesScreen } from './MessagesScreen';
-import { getSpotifyToken } from '../helpers/getSpotifyToken';
+import { getSpotifyToken } from '../helpers/apiSpotify	';
 
 toast.configure();
 
@@ -45,20 +45,29 @@ export const CreateBoardScreen = ({ discs }) => {
 		setBoardName(e.target.value);
 	};
 
+	const preCreateBoard = () => {
+		setButtonDisabled(true);
+		setBoardUrl(null);
+		setFinish(false);
+	};
+
+	const postCreateBoard = (result) => {
+		setButtonDisabled(false);
+		setFinish(result);
+		getBoards();
+		notify(`Board ${boardName} created successfully`, 'Success');
+	};
+
 	const createBoardComplete = async () => {
 		try {
+			// CHECK IF CAN CREATE A BOARD
 			if (boardName && boards.length < 10) {
-				setButtonDisabled(true);
-				setBoardUrl(null);
-				setFinish(false);
+				preCreateBoard();
 				const { id, url } = await createBoard(boardName);
 				setBoardUrl(url);
 				setBoardNameAux(boardName);
 				const { result } = await createLists(id, discs, token);
-				setButtonDisabled(false);
-				setFinish(result);
-				getBoards();
-				notify(`Board ${boardName} created successfully`, 'Success');
+				postCreateBoard(result);
 			} else if (!boardName) {
 				notify(`You must provide a name for the board`, 'Error');
 			} else if (boards.length === 10) {
