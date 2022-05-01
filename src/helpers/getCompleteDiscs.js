@@ -1,8 +1,7 @@
 import { sortByYearAndName } from './appFunctions';
 
-export const getCompleteInfo = (orderDiscography) => {
+export const getCompleteDiscs = (orderDiscography) => {
 	let completeDisc = [];
-	let completeDiscOrdered = [];
 
 	// OBTENGO Y AGREGO EL DATO DE LA DECADA DEL DISCO
 	orderDiscography.map((el) => {
@@ -27,8 +26,7 @@ export const getCompleteInfo = (orderDiscography) => {
 
 	for (let key in groupedDiscs) {
 		let obj = groupedDiscs[key];
-		const decadeOrdered = sortByYearAndName(obj, 'year', 'name');
-		completeDiscOrdered.push({ decadeOrdered });
+		sortByYearAndName(obj, 'year', 'name');
 	}
 
 	return groupedDiscs;

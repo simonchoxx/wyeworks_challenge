@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { convertTxtToArray } from '../helpers/appFunctions';
-import { getCompleteInfo } from '../helpers/getCompleteDiscs';
+import { getCompleteDiscs } from '../helpers/getCompleteDiscs';
 import discography from '../resources/discography.txt';
 import { CreateBoardScreen } from './CreateBoardScreen';
 import { Header } from './HeaderScreen';
 
 export const App = () => {
-	const [text, setText] = useState();
+	const [discs, setDiscs] = useState();
 
 	// OBTENGO EL ARCHIVO TXT
 	const getDiscography = (textFile) => {
 		fetch(textFile)
 			.then((response) => response.text())
 			.then((textContent) => {
-				setText(textContent);
+				setDiscs(textContent);
 			});
-		return text || '';
+		return discs || '';
 	};
 
 	const dataDiscography = getDiscography(discography);
@@ -24,14 +24,12 @@ export const App = () => {
 	let discographyParsed = convertTxtToArray(dataDiscography);
 
 	// OBTENGO DISCOGRAFIA AGRUPADA POR DECADA Y ORDENADA POR AÑO Y NOMBRE
-	const groupedDiscs = getCompleteInfo(discographyParsed);
+	const groupedDiscs = getCompleteDiscs(discographyParsed);
 
 	return (
 		<>
 			<Header />
-			<div className="container">
-				<CreateBoardScreen discs={groupedDiscs} />
-			</div>
+			<CreateBoardScreen discs={groupedDiscs} />
 		</>
 	);
 };

@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ListBoardsScreen } from './ListBoardsScreen';
 import { MessagesScreen } from './MessagesScreen';
-import { getSpotifyToken } from '../helpers/apiSpotify	';
+import { getSpotifyToken } from '../helpers/apiSpotify';
 
 toast.configure();
 
@@ -93,7 +93,7 @@ export const CreateBoardScreen = ({ discs }) => {
 	};
 
 	return (
-		<div>
+		<div className="container">
 			<div className="mt-3 justify-content-center d-flex gap-3">
 				<div>
 					<input
