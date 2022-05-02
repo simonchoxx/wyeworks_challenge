@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { createBoard, createLists, getAllBoards } from '../helpers/ApiBoard';
+import { createBoard, createLists, getAllBoards } from '../helpers/apiBoard';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ListBoardsScreen } from './ListBoardsScreen';

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { deleteBoard, getAllBoards } from '../helpers/ApiBoard';
+import { deleteBoard, getAllBoards } from '../helpers/apiBoard';
 
 export const ListBoardsScreen = ({ boardsProp }) => {
 	const [boards, setBoards] = useState(boardsProp);
