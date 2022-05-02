@@ -1,4 +1,5 @@
 import React from 'react';
+import { SpinnerLoader } from './SpinnerLoader';
 
 export const MessagesScreen = ({ finish, boardUrl, boardNameAux }) => {
 	return (
@@ -11,11 +12,7 @@ export const MessagesScreen = ({ finish, boardUrl, boardNameAux }) => {
 						</div>
 
 						<div>
-							<div
-								className="spinner-border ms-auto text-warning"
-								role="status"
-								aria-hidden="true"
-							></div>
+							<SpinnerLoader color={'warning'} />
 						</div>
 					</div>
 					<div>
