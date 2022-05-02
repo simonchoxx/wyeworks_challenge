@@ -49,7 +49,6 @@ export const ListBoardsScreen = ({ boardsProp, loading }) => {
 										<button
 											className="btn btn-outline-danger btn-sm"
 											onClick={() => handleDelete(e.id)}
-											// onClick={() => handleDelete(e.id)}
 										>
 											Delete
 										</button>

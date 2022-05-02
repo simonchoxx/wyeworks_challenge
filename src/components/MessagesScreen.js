@@ -10,15 +10,14 @@ export const MessagesScreen = ({ finish, boardUrl, boardNameAux }) => {
 						<div>
 							Creating board <strong>{boardNameAux}</strong>, please wait...
 						</div>
-
 						<div>
 							<SpinnerLoader color={'warning'} />
 						</div>
 					</div>
 					<div>
 						<p className="fw-lighter mb-0" style={{ fontSize: '0.8em' }}>
-							The board, the lists and the corresponding cards are being
-							created.
+							The board, the lists and the corresponding cards, along with their
+							covers, are being created
 						</p>
 					</div>
 				</div>
