@@ -26,6 +26,7 @@ export const CreateBoardScreen = ({ discs }) => {
 	const [buttonDisabled, setButtonDisabled] = useState(false);
 	const [boards, setBoards] = useState([]);
 	const [token, setToken] = useState('');
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		getBoards();
@@ -34,6 +35,7 @@ export const CreateBoardScreen = ({ discs }) => {
 
 	const getBoards = async () => {
 		setBoards(await getAllBoards());
+		setLoading(false);
 	};
 
 	const getTokenSpotify = async () => {
@@ -122,7 +124,7 @@ export const CreateBoardScreen = ({ discs }) => {
 				boardUrl={boardUrl}
 				boardNameAux={boardNameAux}
 			/>
-			<ListBoardsScreen boardsProp={boards} />
+			<ListBoardsScreen boardsProp={boards} loading={loading} />
 		</div>
 	);
 };

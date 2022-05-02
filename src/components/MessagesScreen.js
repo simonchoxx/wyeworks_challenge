@@ -1,4 +1,5 @@
 import React from 'react';
+import { SpinnerLoader } from './SpinnerLoader';
 
 export const MessagesScreen = ({ finish, boardUrl, boardNameAux }) => {
 	return (
@@ -9,19 +10,14 @@ export const MessagesScreen = ({ finish, boardUrl, boardNameAux }) => {
 						<div>
 							Creating board <strong>{boardNameAux}</strong>, please wait...
 						</div>
-
 						<div>
-							<div
-								className="spinner-border ms-auto text-warning"
-								role="status"
-								aria-hidden="true"
-							></div>
+							<SpinnerLoader color={'warning'} />
 						</div>
 					</div>
 					<div>
 						<p className="fw-lighter mb-0" style={{ fontSize: '0.8em' }}>
-							The board, the lists and the corresponding cards are being
-							created.
+							The board, the lists and the corresponding cards, along with their
+							covers, are being created
 						</p>
 					</div>
 				</div>
