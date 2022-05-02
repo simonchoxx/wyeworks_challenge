@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { deleteBoard, getAllBoards } from '../helpers/apiBoard';
+import { SpinnerLoader } from './SpinnerLoader';
 
-export const ListBoardsScreen = ({ boardsProp }) => {
+export const ListBoardsScreen = ({ boardsProp, loading }) => {
 	const [boards, setBoards] = useState(boardsProp);
 	// useEffect(() => {
 	// 	getBoards();
@@ -24,8 +25,10 @@ export const ListBoardsScreen = ({ boardsProp }) => {
 			<div className="row g-3 my-2">
 				{boardsProp.length ? (
 					<strong>{boardsProp.length} boards created</strong>
-				) : (
+				) : !loading ? (
 					<div className="text-center fs-6">There are no boards to show</div>
+				) : (
+					<SpinnerLoader color={'primary'} />
 				)}
 				{boardsProp?.map((e) => {
 					return (
@@ -46,7 +49,6 @@ export const ListBoardsScreen = ({ boardsProp }) => {
 										<button
 											className="btn btn-outline-danger btn-sm"
 											onClick={() => handleDelete(e.id)}
-											// onClick={() => handleDelete(e.id)}
 										>
 											Delete
 										</button>
