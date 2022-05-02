@@ -94,7 +94,7 @@ export const CreateBoardScreen = ({ discs }) => {
 
 	return (
 		<div className="container">
-			<div className="mt-3 justify-content-center d-flex gap-3">
+			<div className="mt-3 justify-content-center align-items-center d-flex gap-3">
 				<div>
 					<input
 						type="Name"
