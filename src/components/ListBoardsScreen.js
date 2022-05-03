@@ -1,24 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { deleteBoard, getAllBoards } from '../helpers/apiBoard';
+import React from 'react';
 import { SpinnerLoader } from './SpinnerLoader';
 
 export const ListBoardsScreen = ({ boardsProp, loading }) => {
-	const [boards, setBoards] = useState(boardsProp);
-	// useEffect(() => {
-	// 	getBoards();
-	// }, []);
-
 	boardsProp.sort((a, b) => b.id.localeCompare(a.id));
-
-	// const getBoards = async () => {
-	// 	setBoards(await getAllBoards());
-	// };
-
-	const handleDelete = (id) => {
-		deleteBoard(id);
-		// setBoards([]);
-		// getBoards();
-	};
 
 	return (
 		<>
@@ -46,12 +30,6 @@ export const ListBoardsScreen = ({ boardsProp, loading }) => {
 										>
 											Open
 										</a>
-										<button
-											className="btn btn-outline-danger btn-sm"
-											onClick={() => handleDelete(e.id)}
-										>
-											Delete
-										</button>
 									</div>
 								</div>
 							</div>

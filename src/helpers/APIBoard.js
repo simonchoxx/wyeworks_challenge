@@ -23,8 +23,8 @@ export const createBoard = async (name) => {
 };
 
 // FUNCTION TO CREATE LISTS OF DECADE
-const createListByDecade = async (decade, idBoard) => {
-	const postList = `https://api.trello.com/1/lists?name=${decade}&idBoard=${idBoard}&key=${TRELLO_KEY}&token=${TRELLO_TOKEN}`;
+const createListByDecade = async (decade, idBoard, decadeCount) => {
+	const postList = `https://api.trello.com/1/lists?name=${decade} - (${decadeCount} cards)&idBoard=${idBoard}&key=${TRELLO_KEY}&token=${TRELLO_TOKEN}`;
 	try {
 		const response = await fetch(postList, {
 			method: 'POST',
@@ -79,11 +79,12 @@ export const createLists = async (idBoard, discs, token) => {
 	try {
 		for (let key in discs) {
 			let decade = key;
+			let value = discs[key];
+			let decadeCount = value.length;
 
 			// CREATE LIST BY DECADE
-			const idLista = await createListByDecade(decade, idBoard);
+			const idLista = await createListByDecade(decade, idBoard, decadeCount);
 
-			let value = discs[key];
 			for (let i = 0; i < value.length; i++) {
 				let name = value[i].name;
 				let year = value[i].year;
@@ -91,9 +92,9 @@ export const createLists = async (idBoard, discs, token) => {
 				// CREATE CARD IN A LIST
 				const idCard = await createCard(idLista, year, name);
 
+				// ADD COVER IMAGE TO CARD
 				const album = await searchAlbum(token, name);
 				const image = (await getImageAlbum(album)) || urlNoImage;
-				// ADD COVER IMAGE TO CARD
 				await addCoverImage(idCard, image);
 			}
 		}
