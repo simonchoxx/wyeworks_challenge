@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/wyeworks_challenge/static/css/main.039bf95e.css",
+    "main.js": "/wyeworks_challenge/static/js/main.72a2981a.js",
+    "static/media/logoWW_red.svg": "/wyeworks_challenge/static/media/logoWW_red.3310c52afa12115b167a1218be098d90.svg",
+    "index.html": "/wyeworks_challenge/index.html",
+    "static/media/discography.txt": "/wyeworks_challenge/static/media/discography.52473bbd4233e4b26b23.txt",
+    "main.039bf95e.css.map": "/wyeworks_challenge/static/css/main.039bf95e.css.map",
+    "main.72a2981a.js.map": "/wyeworks_challenge/static/js/main.72a2981a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.039bf95e.css",
+    "static/js/main.72a2981a.js"
+  ]
+}
